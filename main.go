@@ -8,7 +8,8 @@ import (
 )
 
 func main() {
-	configPath := *flag.String("config", "", "Path del file di configurazione se diverso dalla cartella di esecuzione")
+	var configPath string
+	flag.StringVar(&configPath, "config", "", "Path del file di configurazione se diverso dalla cartella di esecuzione")
 	flag.Parse()
 	config, err := models.InitConfig(configPath)
 	defer config.Close()

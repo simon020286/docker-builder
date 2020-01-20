@@ -3,7 +3,6 @@ package models
 import (
 	"log"
 	"os"
-	"path"
 
 	yaml "gopkg.in/yaml.v3"
 )
@@ -43,10 +42,8 @@ func (s *Config) Close() {
 // InitConfig from file.
 func InitConfig(configPath string) (*Config, error) {
 	if configPath == "" {
-		configPath = "./"
+		configPath = "./config.yaml"
 	}
-
-	configPath = path.Join(configPath, "config.yaml")
 
 	reader, err := os.Open(configPath)
 
