@@ -1,0 +1,15 @@
+--- 
+images: 
+  simon020286/caddy:          # Image tag
+    path: caddy               # Dockerfile folder
+    platforms:                # buildx platforms, if empty use default build
+      - linux/arm/v7
+  simon020286/sqlite3:
+    path: sqlite              
+    push: yes                 # After build push to Docker hub
+    platforms:
+      - linux/arm/v7
+path: "D:\\Projects\\docker"  # Docker files base path
+output:                       # default: console
+  type: "file"                # console, file
+  path: ""                    # log file path, mandatory for type file
